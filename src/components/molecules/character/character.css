@@ -1,0 +1,53 @@
+.li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+ 
+}
+.image {
+  width: 100%;
+  /* height: 250px; */
+  height: 78%;
+  padding: 0;
+}
+.image .avatar {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.image .status {
+  position: relative;
+  top: -98%;
+  left: 5%;
+}
+.caption {
+  width: 100%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #282c34;
+}
+
+.caption b {
+  color: #5d58d7;
+  font-weight: bold;
+  margin-right: 5px;
+}
+.figcaption {
+  font-size: 15px;
+  text-align: center;
+  padding: 0 5px;
+}
+@media (max-width: 450px){
+  .image, .caption{
+    width: 90%;
+  }
+}

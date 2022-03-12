@@ -1,0 +1,66 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+.logotype {
+  width: 18%;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  margin-top: 20px;
+}
+.inputField {
+  border: none;
+  background: #fff;
+  outline: none;
+  color: #282c34;
+  font-size: 16px;
+  border-radius: 15px;
+  padding: 12px 20px;
+  width: 55%;
+  margin-bottom: 35px;
+}
+.result {
+  color: gray;
+  align-self: flex-start;
+  font-size: 18px;
+  margin-left: 12%;
+}
+
+@media (max-width: 850px) {
+  .logotype {
+    width: 22%;
+  }
+  .inputField {
+    width: 70%;
+  }
+}
+@media (max-width: 600px) {
+  .logotype {
+    width: 32%;
+  }
+  .inputField {
+    width: 75%;
+    padding: 9px 20px;
+    font-size: 14px;
+    margin-bottom: 38px;
+  }
+}
+@media (max-width: 450px) {
+  .logotype {
+    width: 35%;
+  }
+  .inputField {
+    width: 80%;
+    padding: 13px 20px;
+    font-size: 14px;
+    margin-bottom: 38px;
+  }
+}
