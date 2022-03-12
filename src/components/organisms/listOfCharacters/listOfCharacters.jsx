@@ -3,22 +3,36 @@ import getCharacters from "../../../services/getCharacters";
 import Character from "../../molecules/character/character";
 import "./listOfCharacts.css";
 import InfiniteScroll from "react-infinite-scroll-component";
+import getSearch from "../../../services/getSearch";
 
 
-export default function ListOfCharacters() {
-  const [character, setCharacter] = useState([]);
+export default function ListOfCharacters({ characters = [], keyword = "" }) {
+  const [character, setCharacter] = useState(characters);
 
   const [page, setPage] = useState(1);
 
-  useEffect(
-    function () {
-      getCharacters({ page }).then((character) =>
-        setCharacter((prevCharacter) => prevCharacter.concat(character))
-      );
-      console.log("página cargada");
-    },
-    [page]
-  );
+  useEffect(() => {
+    if (characters.length === 0) {
+      getCharacters({ page }).then((character) => {
+        if(character) setCharacter((prevCharacter) => prevCharacter.concat(character))
+      });
+    } else if (page > 1) {
+      console.log(page);
+      getSearch({ keyword, page }).then((search) => {
+        if (page > search.info.pages + 1) {
+          setPage(1);
+          return;
+        }
+        if(search.results) setCharacter((prevCharacter) => prevCharacter.concat(search.results))
+      })
+    }
+    console.log("página cargada");
+  }, [page]);
+
+  useEffect(() => {
+    setCharacter(characters);
+    setPage(1);
+  }, characters)
 
   const loader = () => {
     return <h4>Loading...</h4>;
@@ -45,7 +59,7 @@ export default function ListOfCharacters() {
             location,
           }) => (
             <Character
-              key={id + 1} // siempre es necesario debe ser un dato unico, en este caso la id funciona
+              key={id} // siempre es necesario debe ser un dato unico, en este caso la id funciona
               name={name}
               url={image}
               status={status}

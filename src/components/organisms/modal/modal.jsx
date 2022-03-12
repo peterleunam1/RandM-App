@@ -35,7 +35,7 @@ export default function Modal({
               <img className="avatar2" src={url} alt={name} />
               <section className="details">
                 <div className="status">
-                  <Status color={Nstatu} />
+                  <Status status={Nstatu} />
                 </div>
                 <strong>
                   {" "}

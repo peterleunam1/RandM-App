@@ -1,17 +1,17 @@
-import "./status.css";
+import styles from './status.module.css';
 
-export default function Status({ color }) {
-  const pictureColor =
-    color === "alive" || color === "Alive"
-      ? "is-alive"
-      : color === "dead" || color === "Dead"
-      ? "is-death"
-      : color === "unknown" || color === "Unknown"
-      ? "is-unknow"
-      : "";
+export default function Status({status}) {
+  const pictureColor = {
+    "alive": styles.is_alive,
+    "dead": styles.is_death,
+    "unknown": styles.is_unknown,
+  }
+
+  const statusClass = pictureColor[status.toLowerCase()];
+
   return (
-    <div className={pictureColor}>
-      <strong className="text">{color}</strong>
+    <div className={`${styles.status__container} ${statusClass}`}>
+      <strong className="text">{status}</strong>
     </div>
   );
 }
