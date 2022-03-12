@@ -1,5 +1,6 @@
 import getSearch from "../../../services/getSearch";
 import Character from "../../molecules/character/character";
+import ListOfCharacters from "../listOfCharacters/listOfCharacters";
 import { useState, useEffect } from "react";
 import Header from "../../molecules/header/header";
 
@@ -12,7 +13,7 @@ export default function SearchList({ params }) {
 
   useEffect(
     function () {
-      getSearch({ keyword }).then((search) => setSearch(search));
+      getSearch({ keyword, page: 1 }).then((search) => setSearch(search.results));
     },
     [keyword]
   );
@@ -30,35 +31,9 @@ export default function SearchList({ params }) {
   return (
     <div className="searched">
       <Header text="Resultados" />
-      <div className="container">
-        {search.length > 0
-          ? search.map(
-              ({
-                id,
-                name,
-                image,
-                status,
-                species,
-                gender,
-                origin,
-                type,
-                location,
-              }) => (
-                <Character
-                  key={id} // siempre es necesario debe ser un dato unico, en este caso la id funciona
-                  name={name}
-                  url={image}
-                  status={status}
-                  species={species}
-                  gender={gender}
-                  origin={origin.name}
-                  type={type}
-                  location={location.name}
-                />
-              )
-            )
-          : notFound()}
-      </div>
+      {
+        search.length > 0 ? <ListOfCharacters characters={search} keyword={keyword} /> : notFound()
+      }
     </div>
   );
 }

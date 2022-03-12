@@ -1,27 +1,23 @@
-div.is-unknow {
+.is_unknown {
   background-color: #9e9e9e;
   color: #282c34;
-  width: min-content;
-  text-align: center;
-  border-radius: 6px;
-  padding: 3px 7px;
 }
-div.is-alive {
+.is_alive {
   background: #77dd77;
   color: #282c34;
-  width: min-content;
-  text-align: center;
-  border-radius: 7px;
-  padding: 3px 7px;
 }
-div.is-death {
+.is_death {
   background: #cb3214;
   color: blanchedalmond;
+}
+
+.status__container {
   width: min-content;
   text-align: center;
   border-radius: 7px;
   padding: 3px 7px;
 }
+
 .text {
   font-size: 15px;
 }

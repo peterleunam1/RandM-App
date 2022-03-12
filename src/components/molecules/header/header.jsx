@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function Header({ text = "" }) {
   const [keyword, setkeyword] = useState("");
-  const [path, pushLocation] = useLocation();
+  const [,pushLocation] = useLocation();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();

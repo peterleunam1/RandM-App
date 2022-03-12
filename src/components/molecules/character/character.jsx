@@ -22,7 +22,7 @@ export default function Character({
       <div className="image">
         <img className="avatar" src={url} alt={name} />
         <div className="status">
-          <Status color={status} />
+          <Status status={status} />
         </div>
       </div>
       <div className="caption">
